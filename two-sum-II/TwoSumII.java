@@ -1,29 +1,24 @@
-/**
- * 
- * 
- */
 import java.util.*;
 
 class TwoSumII{
 
     // solution using two pointers
-    public int[] solutionI(int[] numbers, int target){
+    public List<Integer> solutionI(int[] numbers, int target){
         int left = 0;
         int right = numbers.length - 1;
         
-        while (left < right){
-            
-            if (numbers[left] + numbers[right] == target){
-                return {left + 1, right + 1};
-            }
-            else if(numbers[left] + numbers[right] > target){
+        while (left < right) {
+
+            if (numbers[left] + numbers[right] == target) {
+                return Arrays.asList(left + 1, right + 1);
+            } else if (numbers[left] + numbers[right] > target) {
                 right -= 1;
-            }
-            else{
+            } else {
                 left += 1;
             }
 
         }
+        return null;
     }
 
     // solution using a map
@@ -31,10 +26,10 @@ class TwoSumII{
 
         Map<Integer, Integer> numMap = new HashMap<>();
 
-        for (int i = 0, i < numbers.length; i+= 1){
+        for (int i = 0; i < numbers.length; i+= 1){
             int difference = target - numbers[i];
             if(numMap.containsKey(difference)){
-                return {numMap.get(difference), i + 1}
+                return new int[]{numMap.get(difference), i + 1};
             }
             numMap.put(numbers[i], i + 1);
         }
