@@ -1,5 +1,7 @@
+import java.util.*;
+
 public class Happy {
-    
+
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();
         while(n != 1 && !seen.contains(n)){
